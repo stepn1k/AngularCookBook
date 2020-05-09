@@ -1,0 +1,22 @@
+.detail-image {
+  width: 360px;
+  height: 210px;
+  border-radius: 1rem;
+}
+
+
+.list-group-item {
+  padding: 0.1rem 1rem;
+  font-size: 0.9rem;
+
+  .amount {
+    font-weight: bold;
+  }
+
+  &:hover {
+    background-color: orangered;
+    cursor: pointer;
+  }
+}
+
+

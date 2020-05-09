@@ -1,0 +1,57 @@
+<div class="recipe-detail">
+  <!-- title -->
+  <div class="row text-center">
+    <div class="col-12">
+      <h2 class="text-danger">{{currentRecipe.name}}</h2>
+    </div>
+  </div>
+
+  <!-- image -->
+  <div class="row mb-2">
+    <div class="col-12">
+      <img src="{{currentRecipe.imagePath}}"
+           alt=""
+           class="img-responsive detail-image">
+    </div>
+  </div>
+
+  <!--Edit block-->
+  <div class="row">
+    <div class="col-12">
+      <div class="btn-group">
+        <div class="dropdown" appDropDown>
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            Manage Recipe <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#" (click)="addToShoppingList()">To Shopping List</a>
+            <a class="dropdown-item" href="#">Edit Recipe</a>
+            <a class="dropdown-item" href="#">Delete Recipe</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--description-->
+  <div class="row">
+    <div class="col-12">
+      Description
+    </div>
+  </div>
+  <!--Ingredients-->
+  <div class="row">
+    <div class="col-12">
+      <ul class="list-group">
+        <li
+          *ngFor="let ingridient of currentRecipe.ingredients"
+          class="list-group-item"
+        >
+          <span class="amount"> {{ingridient.amount}} </span>
+          {{ingridient.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

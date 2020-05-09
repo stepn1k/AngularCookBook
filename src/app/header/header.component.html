@@ -1,1 +1,27 @@
-<h1>header</h1>
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header d-flex">
+      <!-- logo -->
+      <a href="#" class="navbar-brand">
+        <i class="fab fa-500px"></i>
+        Recipe Book</a>
+      <!--nav links-->
+      <nav class="nav">
+        <a href="#" class="nav-link" (click)="togglePage($event)">Recipes</a>
+        <a href="#" class="nav-link" (click)="togglePage($event)">Shopping List</a>
+      </nav>
+    </div>
+    <!--drop down menu-->
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown" appDropDown>
+        <a href="#" class="dropdown-toggle" role="button">
+          Manage <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu nav-drop-down">
+          <a class="dropdown-item" href="#">Save Data</a>
+          <a class="dropdown-item" href="#">Fetch Data</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

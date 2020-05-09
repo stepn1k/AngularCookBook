@@ -1,0 +1,40 @@
+.navbar {
+  font-weight: bold;
+  background-color: #1976d2;
+
+  &-brand {
+    font-weight: bold;
+    font-size: 1.3rem
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a:hover {
+      color: orangered;
+      transition: all 0.2s ease-out;
+    }
+  }
+}
+
+a {
+  color: white;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.nav-drop-down {
+  position: absolute;
+  left: -80px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+
+  a {
+    color: black;
+    padding: 4px 24px;
+  }
+
+}
+

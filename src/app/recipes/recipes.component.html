@@ -1,0 +1,23 @@
+<div class="row">
+
+  <!--left Column -->
+  <div class="col-md-5">
+    <app-recipe-list></app-recipe-list>
+  </div>
+
+  <!-- Right Column -->
+  <div class="col-md-7 right-column">
+    <app-recipe-detail
+      [currentRecipe]="currentRecipe"
+      *ngIf="currentRecipe; else infoText"
+      class="recipe-detail"
+    >
+    </app-recipe-detail>
+
+    <!-- "select" message -->
+    <ng-template #infoText>
+      <p>Please select a Recipe!</p>
+    </ng-template>
+  </div>
+
+</div>

@@ -1,7 +1,6 @@
-<a
-  href="#"
-  class="list-group-item d-flex"
-  (click)="onSelected()"
+<a class="list-group-item d-flex"
+   [routerLink]="[index]"
+   routerLinkActive="active-item"
 >
   <div>
     <h4 class="list-group-item-heading">{{recipe.name}}</h4>

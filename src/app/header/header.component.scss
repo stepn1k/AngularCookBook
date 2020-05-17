@@ -14,7 +14,12 @@
 
     a:hover {
       color: orangered;
-      transition: all 0.2s ease-out;
+      transition: color 0.25s ease-out;
+    }
+
+    .active {
+      border: 1px solid white;
+      border-radius: 0.2rem;
     }
   }
 }
@@ -37,4 +42,3 @@ a {
   }
 
 }
-

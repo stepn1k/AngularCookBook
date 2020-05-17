@@ -2,10 +2,20 @@ a {
   text-decoration: none;
   margin-bottom: 0.7rem;
 
+  :hover {
+    color: orangered;
+    cursor: pointer;
+  }
+
   .list-group-item-text {
     line-height: 1rem;
     color: black;
     font-style: italic;
   }
 
+}
+
+.active-item {
+  border: 1px solid #218838;
+  box-shadow: #218838 0 0 12px;
 }

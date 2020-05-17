@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   styleUrls: ['./header.component.scss'],
@@ -6,9 +6,8 @@ import {Component, EventEmitter, Output} from "@angular/core";
   templateUrl: "./header.component.html"
 })
 export class HeaderComponent {
-  @Output() state: EventEmitter<boolean> = new EventEmitter();
 
-  togglePage(event) {
-    this.state.emit(event.target.textContent === "Recipes")
+  constructor() {
   }
+
 }

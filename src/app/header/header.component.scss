@@ -1,6 +1,8 @@
+@import "../shared/variables";
+
 .navbar {
   font-weight: bold;
-  background-color: #1976d2;
+  background-color: $palette-color-1;
 
   &-brand {
     font-weight: bold;
@@ -12,14 +14,10 @@
     align-items: center;
     justify-content: center;
 
-    a:hover {
-      color: orangered;
-      transition: color 0.25s ease-out;
-    }
-
     .active {
-      border: 1px solid white;
-      border-radius: 0.2rem;
+      color: $palette-color-2;
+      border-right: 2px solid $palette-color-2;
+      border-left: 2px solid $palette-color-2;
     }
   }
 }
@@ -28,6 +26,11 @@ a {
   color: white;
   font-size: 0.95rem;
   text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+  }
 }
 
 .nav-drop-down {

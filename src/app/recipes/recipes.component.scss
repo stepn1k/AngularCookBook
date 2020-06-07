@@ -1,12 +1,13 @@
-.recipe-detail{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:20px;
-}
+@import "../shared/variables";
 
-.right-column{
+.recipe-detail, .right-column {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+.right-column{
+  background: $palette-color-1-opacity;
+  border-radius: 0.4rem;
+  align-self: flex-start;
 }

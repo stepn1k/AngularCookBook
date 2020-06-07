@@ -1,13 +1,14 @@
 import Recipe from "../recipes/recipe.model";
 import {Injectable} from "@angular/core";
-import {Subject} from "rxjs";
 import Ingredient from "../shared/ingredient.model";
 import {ShoppingListService} from "./shopping-list.service";
-
+import {Subject} from "rxjs";
 
 @Injectable()
 
 export class RecipesService {
+  recipeChanged = new Subject<Recipe[]>();
+
   constructor(private slService: ShoppingListService) {
   }
 
@@ -40,6 +41,33 @@ export class RecipesService {
         new Ingredient('tsp Olive oil', 1),
         new Ingredient('1/4 tsp Cumin, ground', 1)
       ]
+    ),
+    new Recipe(
+      'Spaghetti',
+      'Turkey Taco Stuffed Sweet Potato recipe is a fantastic option when you need a quick dinner recipe. 226 calories and 5 Weight Watchers Freestyle',
+      'https://static.1000.menu/img/content/37027/spagetti-s-tushenkoi_1564024332_1_max.jpg',
+      [
+        new Ingredient('Sweet potatoes, medium', 2),
+        new Ingredient('1/4 cup Tomatoes, canned', 1),
+        new Ingredient('tsp Chili powder', 1),
+        new Ingredient('tsp Olive oil', 1),
+        new Ingredient('1/4 tsp Cumin, ground', 1),
+        new Ingredient('tsp Olive oil', 1),
+        new Ingredient('1/4 tsp Cumin, ground', 1)
+      ]
+    ),
+    new Recipe(
+      'Borscht',
+      'Turkey Taco Stuffed Sweet Potato recipe is a fantastic option when you need a quick dinner recipe. 226 calories and 5 Weight Watchers Freestyle',
+      'https://herbalinfo.ru/wp-content/uploads/2018/05/Ukrainian_Borscht.jpg',
+      [
+        new Ingredient('tbsp Flat-leaf parsley', 2),
+        new Ingredient('Garlic cloves', 4),
+        new Ingredient('tsp Oregano, dried', 1),
+        new Ingredient('Sweet potatoes, medium', 2),
+        new Ingredient('tsp Olive oil', 1),
+        new Ingredient('1/4 tsp Cumin, ground', 1)
+      ]
     )
   ];
 
@@ -51,6 +79,20 @@ export class RecipesService {
     return this.recipes[id]
   }
 
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
+  deleteRecipe(id: number) {
+    this.recipes.splice(id, 1);
+    this.recipeChanged.next(this.recipes.slice());
+  }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredientsFromRecipeDetail(ingredients)

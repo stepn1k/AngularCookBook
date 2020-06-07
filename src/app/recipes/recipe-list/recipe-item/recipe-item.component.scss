@@ -1,21 +1,29 @@
-a {
-  text-decoration: none;
-  margin-bottom: 0.7rem;
+@import "../../../shared/variables";
 
-  :hover {
-    color: orangered;
-    cursor: pointer;
+a {
+  padding: 0 0.5rem 0.5rem;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  color: white;
+  background-color: $palette-color-1-opacity;
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
   }
 
   .list-group-item-text {
     line-height: 1rem;
-    color: black;
     font-style: italic;
+    margin: 0;
+    color: $text-color-dark;
   }
-
 }
 
 .active-item {
-  border: 1px solid #218838;
-  box-shadow: #218838 0 0 12px;
+  border: 3px solid $palette-color-1;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25),
+  0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: translateX(10px);
+  transition-duration: 0.4s;
 }

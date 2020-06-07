@@ -1,13 +1,38 @@
-.detail-image {
-  width: 360px;
-  height: 210px;
-  border-radius: 1rem;
+@import "../../shared/variables";
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,600&display=swap');
+
+.header {
+  position: relative;
+  top: -3px;
+  padding: 0;
+  margin-bottom: 0.3rem;
+  color: $palette-color-2;
+  background-color: $palette-color-1;
+  border-radius: 0.4rem;
+  font-family: 'Titillium Web', sans-serif;
+
+  h2 {
+    font-size: 1.7rem;
+    vertical-align: center;
+    margin: 0;
+    padding: 0.2rem;
+  }
 }
 
+.detail-image {
+  width: 390px;
+  height: auto;
+  border-radius: 1rem;
+}
 
 .list-group-item {
   padding: 0.1rem 1rem;
   font-size: 0.9rem;
+
+  &:last-child {
+    margin-bottom: 0.5rem;
+  }
+
 
   .amount {
     font-weight: bold;
@@ -19,4 +44,10 @@
   }
 }
 
+.description {
+  h6 {
+    color: white;
+  }
+  color: $text-color-dark;
+}
 

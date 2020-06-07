@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {DropdownDirective} from "./shared/dropdown.directive";
 import {ShoppingListService} from "./services/shopping-list.service";
+import {RecipesService} from "./services/recipes.service";
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from "./header/header.component";
@@ -40,7 +41,7 @@ import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,11 +1,13 @@
 <div class="row mt-3">
-  <div class="col-sm-12">
-    <app-recipe-item
-      *ngFor="let recipeEl of recipes; let id = index"
-      [recipe]="recipeEl"
-      [index]="id"
-    ></app-recipe-item>
+
+  <div class="col-sm-12 pb-2">
+      <app-recipe-item
+        *ngFor="let recipeEl of recipes; let id = index"
+        [recipe]="recipeEl"
+        [index]="id"
+      ></app-recipe-item>
   </div>
+
 </div>
 
 <div class="row">

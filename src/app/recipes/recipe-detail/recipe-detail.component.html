@@ -1,13 +1,13 @@
 <div class="recipe-detail">
     <!-- title -->
     <div class="row text-center header">
-      <div class="col-12">
+      <div class="col-sm-12">
         <h2>- {{currentRecipe.name}} -</h2>
       </div>
     </div>
     <!-- image -->
     <div class="row mb-2">
-      <div class="col-12">
+      <div class="col-sm-12">
         <img src="{{currentRecipe.imagePath}}"
              alt=""
              class="img-responsive detail-image">
@@ -15,7 +15,7 @@
     </div>
     <!--Edit block-->
     <div class="row">
-      <div class="col-12">
+      <div class="col-sm-12">
         <div class="btn-group">
           <div class="dropdown" appDropDown>
             <a class="btn btn-primary dropdown-toggle text-white"
@@ -34,14 +34,14 @@
     </div>
     <!--description-->
     <div class="row mt-1">
-      <div class="col-12 description">
+      <div class="col-sm-12 description">
         <h6 class="m-0">Description:</h6>
         <p class="mb-1 font-italic">{{currentRecipe.description}}</p>
       </div>
     </div>
     <!--Ingredients-->
     <div class="row">
-      <div class="col-12">
+      <div class="col-sm-12">
         <ul class="list-group">
           <li
             *ngFor="let ingredient of currentRecipe.ingredients"

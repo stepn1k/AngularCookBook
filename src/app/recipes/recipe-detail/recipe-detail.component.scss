@@ -48,6 +48,14 @@
   h6 {
     color: white;
   }
+
   color: $text-color-dark;
+}
+
+
+@media (max-width: 767px) {
+  .detail-image {
+    width: 285px;
+  }
 }
 

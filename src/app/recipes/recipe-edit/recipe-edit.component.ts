@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {RecipesService} from "../../services/recipes.service";
@@ -87,7 +87,12 @@ export class RecipeEditComponent implements OnInit {
     this.editForm = new FormGroup({
       "name": new FormControl(recipeName, Validators.required),
       "description": new FormControl(recipeDescription, Validators.required),
-      "imagePath": new FormControl(recipeImagePath, Validators.required),
+      "imagePath": new FormControl(
+        recipeImagePath,
+        [
+          Validators.required,
+          Validators.pattern(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm)]
+      ),
       "ingredients": recipeIngredients
     });
   }

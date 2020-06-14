@@ -1,4 +1,7 @@
+@import "../shared/variables.scss";
+
 h3 {
+  color: $text-color-dark;
   display: flex;
   justify-content: center;
   margin: 50px;

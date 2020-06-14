@@ -38,22 +38,27 @@
               id="imagePath"
               class="form-control"
               formControlName="imagePath"
-              #imagePreview/>
+              #imagePathPreview
+            />
           </div>
         </div>
       </div>
       <!--Image Preview-->
-      <div class="row">
+      <div
+        class="row mb-3"
+        *ngIf="editForm.get('imagePath').valid"
+      >
         <div class="col-sm-12 image-container">
           <img
-            [src]="imagePreview.value"
-            class="img-responsive">
+            src="{{imagePathPreview.value}}"
+            class="img-responsive"
+            alt="No Image Available">
         </div>
       </div>
       <!--Description-->
       <div class="row">
         <div class="col-sm-12">
-          <div class="form-group mt-3">
+          <div class="form-group">
             <label for="description">Description</label>
             <textarea
               type="text"

@@ -1,14 +1,20 @@
 @import "../../shared/variables";
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,600&display=swap');
 
+:host {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+
 .header {
   position: relative;
   top: -3px;
   padding: 0;
-  margin-bottom: 0.3rem;
   color: $palette-color-2;
-  background-color: $palette-color-1;
+  background-color: rgba(119, 73, 53, 1);
   border-radius: 0.4rem;
+  margin: 0.3rem;
   font-family: 'Titillium Web', sans-serif;
 
   h2 {
@@ -19,8 +25,14 @@
   }
 }
 
+.image-container{
+  display: flex;
+  justify-content: center;
+}
+
 .detail-image {
-  width: 390px;
+  width: 100%;
+  max-width: 390px;
   height: auto;
   border-radius: 1rem;
 }
@@ -53,9 +65,4 @@
 }
 
 
-@media (max-width: 767px) {
-  .detail-image {
-    width: 285px;
-  }
-}
 

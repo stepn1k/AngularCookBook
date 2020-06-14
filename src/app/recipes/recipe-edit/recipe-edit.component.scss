@@ -1,3 +1,5 @@
+@import "../../shared/variables";
+
 :host {
   width: 100%;
 }
@@ -7,8 +9,25 @@ input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
   border-color: red;
 }
 
+.btn-group {
+  button {
+    margin: 1rem 0.4rem 0.4rem;
+  }
+}
+
+label {
+  font-weight: bold;
+  color: $palette-color-1;
+}
+
 img {
-  max-width: 360px;
-  max-height: 210px;
+  width: 100%;
+  max-width: 390px;
+  height: auto;
   border-radius: 1rem;
+}
+
+.image-container{
+  display: flex;
+  justify-content: center;
 }

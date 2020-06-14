@@ -18,6 +18,8 @@ import {ShoppingEditComponent} from './shopping-list/shopping-edit/shopping-edit
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.component';
 import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
+import {ShortenPipe} from "./shorten.pipe";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -33,12 +35,14 @@ import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
     DropdownDirective,
     PageNotFoundComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    ShortenPipe
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [ShoppingListService, RecipesService],

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row ">
   <div class="col-sm-12">
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
       <!--Buttons Group-->
@@ -11,7 +11,7 @@
           >
             Save
           </button>
-          <button type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+          <button type="button" class="btn btn-primary cancel" (click)="onCancel()">Cancel</button>
         </div>
       </div>
       <!--Name-->
@@ -44,7 +44,7 @@
       </div>
       <!--Image Preview-->
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 image-container">
           <img
             [src]="imagePreview.value"
             class="img-responsive">
@@ -53,7 +53,7 @@
       <!--Description-->
       <div class="row">
         <div class="col-sm-12">
-          <div class="form-group">
+          <div class="form-group mt-3">
             <label for="description">Description</label>
             <textarea
               type="text"
@@ -88,8 +88,8 @@
               <button class="btn btn-danger" (click)="deleteIngredient(i)">X</button>
             </div>
           </div>
-          <hr>
-          <div class="row">
+          <hr class="mb-0">
+          <div class="row mb-2 mt-2">
             <div class="col-sm-12">
               <button
                 class="btn btn-success"

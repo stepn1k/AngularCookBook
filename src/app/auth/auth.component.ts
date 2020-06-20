@@ -43,7 +43,6 @@ export class AuthComponent implements OnInit {
         this.router.navigate(['/recipes'])
       },
       errMessage => {
-        console.log(errMessage)
         this.isLoading = false;
         this.error = errMessage;
         setTimeout(() => this.error = null, 4000)

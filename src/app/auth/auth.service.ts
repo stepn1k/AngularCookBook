@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError, tap} from "rxjs/operators";
 import {BehaviorSubject, throwError} from "rxjs";
 import {UserModel} from "./user.model";
+import {Router} from "@angular/router";
 
 export interface AuthResponseData {
   idToken: string,
@@ -18,7 +19,7 @@ export interface AuthResponseData {
 export class AuthService {
   user = new BehaviorSubject<UserModel>(null);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   signUp(email: string, password: string) {
@@ -41,11 +42,40 @@ export class AuthService {
     }))
   }
 
+  logout() {
+    this.user.next(null);
+    this.router.navigate(["/auth"])
+  }
+
+  autoLogin() {
+    const userData: {
+      email: string,
+      id: string,
+      _token: string
+      _tokenExpirationDate: string
+    } = JSON.parse(localStorage.getItem("userData"));
+
+    if (!userData) {
+      return
+    }
+
+    const loadedUser = new UserModel(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+    )
+
+    if (loadedUser.token) {
+      this.user.next(loadedUser)
+    }
+  }
 
   private handleAuth(email: string, localId: string, idToken: string, expiresIn: number) {
     const expirationDate = new Date(new Date().getTime() + +expiresIn * 1000);
     const user = new UserModel(email, localId, idToken, expirationDate);
     this.user.next(user);
+    localStorage.setItem("userData", JSON.stringify(user))
   }
 
 

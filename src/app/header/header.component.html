@@ -32,7 +32,7 @@
 
     <div class="d-flex justify-content-center">
       <!--logout-->
-      <a class="nav-link auth-state mr-2" *ngIf="isAuth">
+      <a class="nav-link auth-state mr-2" *ngIf="isAuth" (click)="onLogout()">
         Logout
       </a>
       <!--drop down menu-->

@@ -45,3 +45,10 @@ a {
   }
 
 }
+
+.auth-state{
+  &:hover{
+    color:$palette-color-2;
+    text-decoration: underline;
+  }
+}

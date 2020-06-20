@@ -19,7 +19,10 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.component';
 import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
 import {ShortenPipe} from "./shorten.pipe";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthComponent} from './auth/auth.component';
+import {SpinnerComponent} from "./shared/spinner/spinner.component";
+import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 
 
 @NgModule({
@@ -36,7 +39,9 @@ import {HttpClientModule} from "@angular/common/http";
     PageNotFoundComponent,
     RecipeStartComponent,
     RecipeEditComponent,
-    ShortenPipe
+    ShortenPipe,
+    AuthComponent,
+    SpinnerComponent
   ],
   imports: [
     AppRoutingModule,
@@ -45,7 +50,11 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService, RecipesService],
+  providers: [
+    ShoppingListService,
+    RecipesService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

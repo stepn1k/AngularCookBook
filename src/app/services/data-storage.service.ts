@@ -1,15 +1,15 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {RecipesService} from "./recipes.service";
-import Recipe from "../recipes/recipe.model";
 import {map, tap} from "rxjs/operators";
+import Recipe from "../recipes/recipe.model";
 
 @Injectable({providedIn: "root"})
 
 export class DataStorageService {
   constructor(
     private http: HttpClient,
-    private recipeService: RecipesService) {
+    private recipeService: RecipesService,) {
   }
 
   storeData() {
@@ -20,8 +20,12 @@ export class DataStorageService {
   }
 
   fetchData() {
-    return this.http.get<Recipe[]>("https://recipe-app-4d45b.firebaseio.com/recipes.json")
-      .pipe(map(recipes => {
+    return this.http
+      .get<Recipe[]>(
+        "https://recipe-app-4d45b.firebaseio.com/recipes.json"
+      )
+      .pipe(
+        map(recipes => {
           return recipes.map(recipe => {
             return {
               ...recipe,
@@ -31,8 +35,7 @@ export class DataStorageService {
         }),
         tap(recipe => {
           this.recipeService.rewriteRecipeList(recipe)
-        }))
-
+        })
+      )
   }
-
 }

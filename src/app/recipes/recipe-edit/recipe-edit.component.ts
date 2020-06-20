@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {RecipesService} from "../../services/recipes.service";
@@ -8,6 +8,7 @@ import {RecipesService} from "../../services/recipes.service";
   templateUrl: './recipe-edit.component.html',
   styleUrls: ['./recipe-edit.component.scss']
 })
+
 export class RecipeEditComponent implements OnInit {
   id: number;
   isEditMode: boolean = false;
@@ -16,7 +17,8 @@ export class RecipeEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private recipeService: RecipesService) {
+    private recipeService: RecipesService,
+    protected changeDetectorRef: ChangeDetectorRef) {
   }
 
   onCancel() {
@@ -54,6 +56,7 @@ export class RecipeEditComponent implements OnInit {
       this.isEditMode = params['id'] != null;
       this.initForm();
     });
+    this.changeDetectorRef.detectChanges();
   }
 
   private initForm() {
@@ -82,6 +85,7 @@ export class RecipeEditComponent implements OnInit {
           )
         }
       }
+
     }
 
     this.editForm = new FormGroup({
@@ -90,8 +94,8 @@ export class RecipeEditComponent implements OnInit {
       "imagePath": new FormControl(
         recipeImagePath,
         [
-          Validators.required,
-          Validators.pattern(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm)]
+          Validators.pattern(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm),
+          Validators.required]
       ),
       "ingredients": recipeIngredients
     });

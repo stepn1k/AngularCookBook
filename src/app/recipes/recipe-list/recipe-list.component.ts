@@ -11,6 +11,7 @@ import {Subscription} from "rxjs";
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   subscription: Subscription;
+  isLoading = true;
 
   constructor(private recipesService: RecipesService) {
   }
@@ -18,7 +19,8 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.recipesService.recipeChanged.subscribe(
       (recipes: Recipe[]) => {
-        this.recipes = recipes
+        this.recipes = recipes;
+        this.isLoading = false;
       });
     this.recipes = this.recipesService.getRecipes()
   }

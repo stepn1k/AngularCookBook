@@ -1,0 +1,41 @@
+<div class="row">
+  <form class="col-sm-5 m-auto" *ngIf="!isLoading" #authForm="ngForm" (submit)="onSubmit(authForm)">
+    <h1 class="h3 mb-2">Please sign in</h1>
+    <label for="email" class="sr-only"></label>
+    <input
+      name="email"
+      type="email"
+      id="email"
+      class="form-control"
+      placeholder="Email address"
+      ngModel
+      email
+      required
+      autofocus
+    >
+    <label for="password" class="sr-only"></label>
+    <input
+      name="password"
+      type="password"
+      id="password"
+      class="form-control"
+      placeholder="Password"
+      ngModel
+      required
+      minlength="6"
+    >
+    <div class="btn-block">
+      <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
+        {{isLoginMode ? "Login" : "Sign Up"}}
+      </button>
+      <button class="btn btn-primary" type="button" (click)="switchMode()">
+        Switch to {{!isLoginMode ? "Login" : "Sign Up"}}
+      </button>
+    </div>
+  </form>
+  <app-spinner class="m-auto" *ngIf="isLoading"></app-spinner>
+</div>
+
+<div *ngIf="error" class="error-message col-sm-5 m-auto alert alert-danger">
+  {{error}}
+</div>

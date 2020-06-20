@@ -9,28 +9,45 @@
       <nav class="nav">
         <a class="nav-link"
            routerLinkActive="active"
+           routerLink="/auth"
+           *ngIf="!isAuth"
+        >
+          Authorization
+        </a>
+        <a class="nav-link"
+           routerLinkActive="active"
            routerLink="/recipes"
+           *ngIf="isAuth"
         >
           Recipes
         </a>
         <a class="nav-link"
            routerLinkActive="active"
-           routerLink="/shopping">
+           routerLink="/shopping"
+           *ngIf="isAuth">
           Shopping List
         </a>
       </nav>
     </div>
-    <!--drop down menu-->
-    <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown" appDropDown>
-        <a class="dropdown-toggle" role="button">
-          Manage <span class="caret"></span>
-        </a>
-        <div class="dropdown-menu nav-drop-down">
-          <a class="dropdown-item" (click)="onSaveData()">Save Data</a>
-          <a class="dropdown-item" (click)="onFetchData()">Fetch Data</a>
-        </div>
-      </li>
-    </ul>
+
+    <div class="d-flex justify-content-center">
+      <!--logout-->
+      <a class="nav-link auth-state mr-2" *ngIf="isAuth">
+        Logout
+      </a>
+      <!--drop down menu-->
+      <ul class="nav navbar-nav navbar-right" *ngIf="isAuth">
+        <li class="dropdown" appDropDown>
+          <a class="dropdown-toggle" role="button">
+            Manage <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu nav-drop-down">
+            <a class="dropdown-item" (click)="onSaveData()">Save Data</a>
+            <a class="dropdown-item" (click)="onFetchData()">Fetch Data</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </nav>

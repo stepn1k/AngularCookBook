@@ -8,10 +8,12 @@ import {RecipeDetailComponent} from "./recipes/recipe-detail/recipe-detail.compo
 import {RecipeEditComponent} from "./recipes/recipe-edit/recipe-edit.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {RecipesResolverService} from "./recipes/recipes-resolver.service";
+import {AuthComponent} from "./auth/auth.component";
 
 
 const appRoutes: Routes = [
   {path: "", redirectTo: "/recipes", pathMatch: 'full'},
+  {path: "auth", component: AuthComponent},
   {
     path: "recipes", component: RecipesComponent, children: [
       {path: "", component: RecipeStartComponent},

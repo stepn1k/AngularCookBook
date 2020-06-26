@@ -1,10 +1,15 @@
 @import "../shared/variables";
 
+:host{
+  display: flex;
+  align-items: flex-start;
+}
+
 .recipe-detail, .right-column {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   margin-top: 20px;
+
 }
 
 .right-column {
@@ -12,4 +17,5 @@
   border-radius: 0.4rem;
   align-self: flex-start;
   box-shadow: $box-shadow;
+  min-height:100%;
 }

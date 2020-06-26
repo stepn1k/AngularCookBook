@@ -1,4 +1,29 @@
-a:hover {
-  background-color: ghostwhite;
-  transition: background-color 0.2s;
+@import "./../shared/variables.scss";
+
+.list-group {
+  align-items: center;
+}
+
+a {
+  padding: 0.2rem 0.9rem;
+  margin: 0.3rem;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  box-shadow: $box-shadow;
+  font-style: italic;
+  color: $text-color-dark;
+  min-width: 350px;
+
+  span {
+    color: #28a745;
+  }
+
+  &:hover {
+    background-color: $palette-color-1-opacity;
+    color: white;
+
+    span {
+      color: $palette-color-2;
+    }
+  }
 }
